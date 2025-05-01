@@ -17,6 +17,11 @@ if (missingEnvVars.length > 0) {
 
 const app = express();
 
+// Health check route for Render
+app.get('/', (req, res) => {
+    res.send('✅ DocScan backend is running!');
+});
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -62,4 +67,4 @@ app.listen(PORT, () => {
     console.log('  POST /api/documents/:id/summary');
     console.log('  POST /api/documents/:id/quiz');
     console.log('  POST /api/documents/save-score');
-}); 
+});
